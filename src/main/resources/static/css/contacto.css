@@ -1,0 +1,78 @@
+/* ===== contacto.css — Estilos exclusivos del formulario (dueño: Andrés) ===== */
+.contacto-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.contacto-container h2 {
+    color: #2c5e3f;
+    margin-bottom: 1rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.contact-form label {
+    font-weight: 600;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: .6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: #2c5e3f;
+    box-shadow: 0 0 0 2px rgba(44,94,63,.15);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-enviar {
+    padding: .8rem 1.5rem;
+    background: #2c5e3f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: inherit;
+    align-self: center;
+}
+
+.btn-enviar:hover {
+    background: #1f4429;
+}
+
+.error {
+    color: #c0392b;
+    font-size: .85rem;
+}
+
+.mensaje-exito {
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
