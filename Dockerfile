@@ -1,26 +1,23 @@
 # Etapa 1: Compilación (Build)
-# Usamos una imagen con Maven y Java 21 para compilar el proyecto
 FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
 
-# Copiamos primero el pom.xml para aprovechar la caché de dependencias de Docker
+# Copiamos primero el pom.xml
 COPY pom.xml .
 RUN mvn dependency:go-offline -B
 
-# Copiamos el resto del código y compilamos
+# Copiamos el resto del código
 COPY src ./src
-RUN mvn clean package -DskipTests
+
+# AQUÍ ESTÁ EL TRUCO: Forzamos el repackage explícitamente
+RUN mvn clean package spring-boot:repackage -DskipTests
 
 # Etapa 2: Ejecución (Runtime)
-# Usamos una imagen ligera de Java 21 (JRE) solo para ejecutar la aplicación
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
-# Copiamos el archivo .jar generado en la etapa anterior
+# Copiamos el archivo .jar generado
 COPY --from=build /app/target/*.jar app.jar
 
-# Exponemos el puerto 8080 (Render lo mapeará automáticamente)
 EXPOSE 8080
-
-# Comando para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "app.jar"]
