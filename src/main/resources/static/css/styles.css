@@ -1,0 +1,64 @@
+/* ===== styles.css — Estilos globales (dueño: Sofía) ===== */
+* {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #f5f5f0; color: #333; line-height: 1.6;
+}
+
+header {
+    background: #2c5e3f;
+    color: #fff; padding: 1rem 2rem;
+}
+
+header h1 {
+    margin: 0 0 .5rem;
+    font-size: 1.6rem;
+}
+
+nav {
+    display: flex;
+    gap: 1rem; flex-wrap: wrap;
+}
+
+nav a {
+    color: #fff; text-decoration: none;
+    padding: .3rem .6rem; border-radius: 4px;
+    transition: background .2s;
+}
+
+nav a:hover {
+    background: #1f4429;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.hero {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hero__img {
+    max-width: 100%;
+    border-radius: 8px;
+    flex: 1 1 300px;
+}
+
+.hero__texto {
+    flex: 1 1 300px;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #666; font-size: .9rem;
+}

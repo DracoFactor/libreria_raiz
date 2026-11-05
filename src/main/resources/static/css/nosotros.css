@@ -1,0 +1,10 @@
+/* nosotros.css — dueño: Sofía */
+.nosotros-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.nosotros-container p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
