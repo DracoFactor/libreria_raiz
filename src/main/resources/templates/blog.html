@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog - Librería Raíz</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/blog.css}">
+</head>
+<body>
+<header>
+    <h1>Librería Raíz</h1>
+    <nav>
+        <a th:href="@{/}">Inicio</a>
+        <a th:href="@{/nosotros}">Nosotros</a>
+        <a th:href="@{/blog}">Blog</a>
+        <a th:href="@{/calendario}">Calendario</a>
+        <a th:href="@{/contacto}">Contacto</a>
+    </nav>
+</header>
+<main class="blog-container">
+    <div class="blog-header">
+        <h2>Blog de Reseñas</h2>
+        <a th:href="@{/blog/nuevo}" class="blog-btn">+ Nueva reseña</a>
+    </div>
+
+    <p th:if="${#lists.isEmpty(posts)}" class="blog-empty">
+        Aún no hay reseñas publicadas.
+    </p>
+
+    <ul class="blog-list" th:unless="${#lists.isEmpty(posts)}">
+        <li class="blog-post" th:each="post : ${posts}">
+            <h3 class="blog-post__titulo" th:text="${post.titulo}">Título</h3>
+            <p class="blog-post__meta">
+                Por <strong th:text="${post.autor != null ? post.autor : 'Anónimo'}">Autor</strong>
+                <span th:if="${post.fechaPublicacion != null}">
+                        · <span th:text="${#temporals.format(post.fechaPublicacion, 'dd/MM/yyyy HH:mm')}">fecha</span>
+                    </span>
+            </p>
+            <p class="blog-post__contenido" th:text="${post.contenido}">Contenido</p>
+        </li>
+    </ul>
+</main>
+<script th:src="@{/js/app.js}"></script>
+</body>
+</html>
