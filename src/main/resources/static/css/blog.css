@@ -130,6 +130,13 @@
     flex-wrap: wrap;
 }
 
+/* Movido desde styles.css (resolución de conflicto) */
+.blog-highlight {
+    background: #fffbe6;
+    padding: .25rem .5rem;
+    border-radius: 3px;
+}
+
 @media (max-width: 600px) {
     .blog-header { flex-direction: column; align-items: flex-start; }
     .blog-form__acciones { flex-direction: column-reverse; }
